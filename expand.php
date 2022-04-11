@@ -1,0 +1,106 @@
+<?php
+    include_once('home.php');
+    require('config.php');
+    //user clicks on a link <- patient or doctor or illness
+    $id = $_GET['id'];
+    $table = $_GET['table'];
+
+    
+
+    if($table == 'doctor'){
+
+        //print out basic doctor data
+        $sql = "SELECT * FROM {$table} WHERE ID = {$id}";
+        $result = $db->query($sql);
+        
+
+        foreach($result as $row){
+            echo "<h2>Dr. {$row['FirstName']} {$row['LastName']}</h2>";
+            echo "<table border=1>";
+            echo "<tr><th>Doctor ID</th><td>{$row['ID']}</td></tr>";
+            echo "<tr><th>First Name</th><td>".$row['FirstName']."</td></tr>";
+            echo "<tr><th>Last Name</th><td>".$row['LastName']."</td></tr>";
+            echo "<tr><th>Phone Number</th><td>".$row['PhoneNumber']."</td></tr>";
+            echo "<tr><th>Email</th><td>".$row['Email']."</td></tr>";
+            echo "<tr><th>Address</th><td>".$row['Address']."</td></tr>";
+            echo "<tr><th>Position</th><td>".$row['Position']."</td></tr>";
+            echo "<tr><th>Date Joined</th><td>".$row['Date_joined']."</td></tr>";
+            echo "<tr><th>Department</th><td>".$row['Department']."</td></tr>";
+        }
+
+        //patients that the doctor is assigned to
+        $sql2 = "SELECT * FROM assigned_to NATURAL JOIN patient WHERE Doctor_id = {$id} AND Patient_id = ID";
+        $result2 = $db->query($sql2);
+
+        echo "<tr><th>Patients</th><td><ul>";
+        foreach($result2 as $row){
+            echo "<li>{$row['FirstName']} {$row['LastName']}</li>";
+        }
+        echo "</ul></td></tr>";
+        echo "</table>";
+
+        //print out sql queries
+        echo "<p>".$sql."<br>";
+        echo $sql2."<br></p>";
+
+    }elseif($table == 'patient'){
+
+        //print out basic patient data
+        $sql = "SELECT * FROM {$table} WHERE ID = {$id}";
+        $result = $db->query($sql);
+
+        foreach($result as $row){
+            echo "<h2>{$row['FirstName']} {$row['LastName']}</h2>";
+            echo "<table border=1>";
+            echo "<tr><th>Patient ID</th><td>{$row['ID']}</td></tr>";
+            echo "<tr><th>First Name</th><td>".$row['FirstName']."</td></tr>";
+            echo "<tr><th>Last Name</th><td>".$row['LastName']."</td></tr>";
+            echo "<tr><th>Sex</th><td>".$row['Sex']."</td></tr>";
+            echo "<tr><th>Phone Number</th><td>".$row['PhoneNumber']."</td></tr>";
+            echo "<tr><th>Email</th><td>".$row['Email']."</td></tr>";
+            echo "<tr><th>Address</th><td>".$row['Address']."</td></tr>";
+            echo "<tr><th>Birthdate</th><td>".$row['Birthdate']."</td></tr>";
+            echo "<tr><th>Insurance Number</th><td>".$row['Insurance']."</td></tr>";
+            echo "<tr><th>Date Admitted</th><td>".$row['DateAdmitted']."</td></tr>";
+        }
+        
+        //print out symptoms
+        $sql2 = "SELECT * FROM is_experiencing NATURAL JOIN symptom WHERE Patient_id = {$id} AND Symptom = ID";
+        $result2 = $db->query($sql2);
+    
+        echo "<tr><th>Symptoms</th><td><ul>";
+        foreach($result2 as $row){
+            echo "<li>{$row['Symptom_name']} ({$row['Severity']})</li>";
+        }
+        echo "</ul></td></tr>";
+
+        //print out doctors assigned to the patient
+        $sql3 = "SELECT * FROM assigned_to NATURAL JOIN doctor WHERE Patient_id = {$id} AND Doctor_id = ID";
+        $result3 = $db->query($sql3);
+
+        echo "<tr><th>Doctor(s)</th><td><ul>";
+        foreach($result3 as $row){
+            echo "<li>Dr. {$row['FirstName']} {$row['LastName']}</li>";
+        }
+        echo "</ul></td></tr>";
+
+        //illnesses that patient is sick from
+        $sql4 = "SELECT * FROM sick_from WHERE Patient_id = {$id}";
+        $result4 = $db->query($sql4);
+
+        echo "<tr><th>Illnesses</th><td><ul>";
+        foreach($result4 as $row){
+            echo "<li>{$row['Illness']} ({$row['Status']})</li>";
+        }
+        echo "</ul></td></tr>";
+        echo "</table>";
+
+        //print out sql queries
+        echo "<p>".$sql."<br>";
+        echo $sql2."<br>";
+        echo $sql3."<br>";
+        echo $sql4."<br><p>";
+    }
+    
+    
+?>
