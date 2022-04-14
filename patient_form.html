@@ -1,0 +1,120 @@
+<!-- add patient -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="styles.css">
+<head>
+<body id="formBody">
+    <h1>Patient Admission Form</h1>
+    <form action='/add.php' method='post'>
+        <div id="flex-container">
+            <div id="child1">
+                <label for='date'> Date Admitted: </label>
+                <input type='text' id='inputField' name='date' placeholder='YYYY-MM-DD'></input>
+                <br>
+                <label for='fname'> First Name: </label>
+                <input type='text' id='inputField' name='fname' placeholder='Type first name'></input>
+                <br>
+                <label for='lname'> Last Name: </label>
+                <input type='text' id='inputField' name='lname' placeholder='Type last name'></input>
+                <br>
+                <label for='sex'> Sex: </label>
+                <input type='text' id='inputField' name='sex' placeholder='M or F'></input>
+                <br>
+                <label for='address'> Address Line: </label>
+                <input type='text' id='inputField' name='address' placeholder="Type address"></input>
+            </div>
+            <div id="child2">
+                <label for='phone'> Phone Number: </label>
+                <input type='text' id='inputField' name='phone' placeholder='XXX-XXX-XXXX'></input>
+                <br>
+                <label for='email'> Email Address: </label>
+                <input type='text' id='inputField' name='email' placeholder='someone@mail.com'></input>
+                <br>
+                <label for='birthdate'> Birthdate: </label>
+                <input type='text' id='inputField' name='birthdate' placeholder='YYYY-MM-DD'></input>
+                <br>
+                <label for='insurance'> Insurance ID: </label>
+                <input type='text' id='inputField' name='insurance' placeholder='Type insurance number'></input>
+            </div>
+        </div>
+        <div id="flex-container">
+            <div id="child3">
+                <br><label for='symptoms'> Symptoms: </label><br><br>
+                <input type="checkbox" id="cough" name="symptoms[]" value="1" onclick="addSeverity('cough','cough_sev')">
+                <label for="cough"> Cough </label>
+                <input type="hidden" id='cough_sev' name='1_sev' placeholder='Severity (1 - 10)'></input>
+                <br><br>
+                <input type="checkbox" id="fatigue" name="symptoms[]" value="2" onclick="addSeverity('fatigue', 'fatigue_sev')">
+                <label for="fatigue"> Fatigue </label>
+                <input type="hidden" id='fatigue_sev' name='2_sev' placeholder='Severity (1 - 10)'></input>
+                <br><br>
+                <input type="checkbox" id="fever" name="symptoms[]" value="3" onclick="addSeverity('fever', 'fever_sev')">
+                <label for="fever"> Fever </label>
+                <input type="hidden" id='fever_sev' name='3_sev' placeholder='Severity (1 - 10)'></input>
+                <br><br>
+                <input type="checkbox" id="vomit" name="symptoms[]" value="4" onclick="addSeverity('vomit', 'vomit_sev')">
+                <label for="vomit"> Vomiting </label>
+                <input type="hidden" id='vomit_sev' name='4_sev' placeholder='Severity (1 - 10)'></input>
+                <br><br>
+                <input type="checkbox" id="throat" name="symptoms[]" value="7" onclick="addSeverity('throat', 'throat_sev')">
+                <label for="throat"> Sore Throat </label>
+                <input type="hidden" id='throat_sev' name='7_sev' placeholder='Severity (1 - 10)'></input>
+            </div>
+            <div id="child3">
+                <br><br><br>
+                <input type="checkbox" id="breath" name="symptoms[]" value="5" onclick="addSeverity('breath', 'breath_sev')">
+                <label for="breath"> Shortness of Breath </label>
+                <input type="hidden" id='breath_sev' name='5_sev' placeholder='Severity (1 - 10)'></input>
+                <br><br>
+                <input type="checkbox" id="headache" name="symptoms[]" value="6" onclick="addSeverity('headache', 'headache_sev')">
+                <label for="headache"> Headache </label>
+                <input type="hidden" id='headache_sev' name='6_sev' placeholder='Severity (1 - 10)'></input>
+                <br><br>
+                <input type="checkbox" id="diarrhea" name="symptoms[]" value="8" onclick="addSeverity('diarrhea', 'diarrhea_sev')">
+                <label for="diarrhea"> Diarrhea </label>
+                <input type="hidden" id='diarrhea_sev' name='8_sev' placeholder='Severity (1 - 10)'></input>
+                <br><br>
+                <input type="checkbox" id="nausea" name="symptoms[]" value="9" onclick="addSeverity('nausea', 'nausea_sev')">
+                <label for="nausea"> Nausea </label>
+                <input type="hidden" id='nausea_sev' name='9_sev' placeholder='Severity (1 - 10)'></input>
+                <br><br>
+                <input type="checkbox" id="congestion" name="symptoms[]" value="10" onclick="addSeverity('congestion', 'congestion_sev')">
+                <label for="congestion"> Congestion </label>
+                <input type="hidden" id='congestion_sev' name='10_sev' placeholder='Severity (1 - 10)'></input>
+            </div>
+            <div id="child3">
+                <br><br><br>
+                <input type="checkbox" id="vision" name="symptoms[]" value="11" onclick="addSeverity('vision', 'vision_sev')">
+                <label for="vision"> Blurred Vision </label>
+                <input type="hidden" id='vision_sev' name='11_sev' placeholder='Severity (1 - 10)'></input>
+                <br><br>
+                <input type="checkbox"id="weight" name="symptoms[]" value="12" onclick="addSeverity('weight', 'weight_sev')">
+                <label for="weight"> Extreme Weight Loss </label>
+                <input type="hidden" id='weight_sev' name='12_sev' placeholder='Severity (1 - 10)'></input>
+                <br><br>
+                <input type="checkbox" id="thirst" name="symptoms[]" value="13" onclick="addSeverity('thirst', 'thirst_sev')">
+                <label for="thirst"> Extreme Thirst </label>
+                <input type="hidden" id='thirst_sev' name='13_sev' placeholder='Severity (1 - 10)'></input>
+            </div>
+        </div>
+        <br>
+        <input type='submit' value='Add Patient' name='submit' id='button'>
+    </form>
+
+    <script>
+        //PUT IN SEPARATE JS FILE
+        function addSeverity(symptom, sev) {
+          var checkBox = document.getElementById(symptom);
+          var field = document.getElementById(sev);
+          if (checkBox.checked == true){
+            field.type= "text";
+          } else {
+            field.type = "hidden";
+          }
+        } 
+    </script>
+
+</body>
+</html>
