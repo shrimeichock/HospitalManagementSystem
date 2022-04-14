@@ -75,8 +75,36 @@ a:hover{
     margin: 2px;
 }
 
-#keyword{
+#inputField{
     padding: 4px 7px;
     border: none;
+    margin: 5px;
 }
 
+#formBody{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#flex-container{
+    display: flex;
+    flex-direction: row;
+}
+
+#child1{
+    width: 50%;
+    margin-left:70px;
+    text-align: left;
+}
+
+#child2{
+    width: 50%;
+    margin-left:20px;
+    text-align: left;
+}
+
+#child3{
+    width: 33%;
+    margin-left:70px;
+    text-align: left;
+}
