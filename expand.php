@@ -5,9 +5,7 @@
     $id = $_GET['id'];
     $table = $_GET['table'];
 
-    
-
-    if($table == 'doctor'){
+    if($table == 'doctors'){
 
         //print out basic doctor data
         $sql = "SELECT * FROM {$table} WHERE ID = {$id}";
@@ -29,7 +27,7 @@
         }
 
         //patients that the doctor is assigned to
-        $sql2 = "SELECT * FROM assigned_to NATURAL JOIN patient WHERE Doctor_id = {$id} AND Patient_id = ID";
+        $sql2 = "SELECT * FROM assigned_to NATURAL JOIN patients WHERE Doctor_id = {$id} AND Patient_id = ID";
         $result2 = $db->query($sql2);
 
         echo "<tr><th>Patients</th><td><ul>";
@@ -37,13 +35,18 @@
             echo "<li>{$row['FirstName']} {$row['LastName']}</li>";
         }
         echo "</ul></td></tr>";
-        echo "</table>";
+        echo "</table><br>";
+
+        //remove button
+        echo "<form action='/remove.php' method='get'>";
+            echo "<button name='remove' type='submit' id='button' value='removeDoctor{$id}'>Remove Doctor</button>";
+        echo "</form>";
 
         //print out sql queries
         echo "<p>".$sql."<br>";
         echo $sql2."<br></p>";
 
-    }elseif($table == 'patient'){
+    }elseif($table == 'patients'){
 
         //print out basic patient data
         $sql = "SELECT * FROM {$table} WHERE ID = {$id}";
@@ -65,7 +68,7 @@
         }
         
         //print out symptoms
-        $sql2 = "SELECT * FROM is_experiencing NATURAL JOIN symptom WHERE Patient_id = {$id} AND Symptom = ID";
+        $sql2 = "SELECT * FROM is_experiencing NATURAL JOIN symptoms WHERE Patient_id = {$id} AND Symptom = ID";
         $result2 = $db->query($sql2);
     
         echo "<tr><th>Symptoms</th><td><ul>";
@@ -75,7 +78,7 @@
         echo "</ul></td></tr>";
 
         //print out doctors assigned to the patient
-        $sql3 = "SELECT * FROM assigned_to NATURAL JOIN doctor WHERE Patient_id = {$id} AND Doctor_id = ID";
+        $sql3 = "SELECT * FROM assigned_to NATURAL JOIN doctors WHERE Patient_id = {$id} AND Doctor_id = ID";
         $result3 = $db->query($sql3);
 
         echo "<tr><th>Doctor(s)</th><td><ul>";
@@ -93,7 +96,12 @@
             echo "<li>{$row['Illness']} ({$row['Status']})</li>";
         }
         echo "</ul></td></tr>";
-        echo "</table>";
+        echo "</table><br>";
+
+        //remove button
+        echo "<form action='/remove.php' method='get'>";
+            echo "<button name='remove' type='submit' id='button' value='removePatient{$id}'>Remove Patient</button>";
+        echo "</form>";
 
         //print out sql queries
         echo "<p>".$sql."<br>";
