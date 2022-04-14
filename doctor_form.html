@@ -1,0 +1,38 @@
+<!-- Add Doctor -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="styles.css">
+<head>
+<body id="formBody">
+    <h1>Doctor Onboarding Form</h1>
+    <form action='/add.php' method='post'>
+        <label for='fname'> First Name: </label>
+        <input type='text' id='inputField' name='fname' placeholder='Type first name'></input>
+        <br>
+        <label for='lname'> Last Name: </label>
+        <input type='text' id='inputField' name='lname' placeholder='Type last name'></input>
+        <br>
+        <label for='address'> Address Line: </label>
+        <input type='text' id='inputField' name='address' placeholder="Type address"></input>
+        <br>
+        <label for='phone'> Phone Number: </label>
+        <input type='text' id='inputField' name='phone' placeholder='XXX-XXX-XXXX'></input>
+        <br>
+        <label for='email'> Email Address: </label>
+        <input type='text' id='inputField' name='email' placeholder='someone@mail.com'></input>
+        <br>
+        <label for='position'> Position: </label>
+        <input type='text' id='inputField' name='position' placeholder='Type position (ex. Cardiologist)'></input>
+        <br>
+        <label for='department'> Department: </label>
+        <input type='text' id='inputField' name='department' placeholder='Type department (ex. Operation Theatre)'></input>
+        <br>
+        <label for='date'> Date Joined: </label>
+        <input type='text' id='inputField' name='date' placeholder='YYYY-MM-DD'></input>
+        <br>
+        <input type='submit' value='Add Doctor' name='submit' id='button'>
+    </form>
+</body>
+</html>
