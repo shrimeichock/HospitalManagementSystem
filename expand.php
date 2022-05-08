@@ -1,5 +1,5 @@
 <?php
-    include_once('home.php');
+    include_once('index.php');
     require('config.php');
     //user clicks on a link <- patient or doctor or illness
     $id = $_GET['id'];
