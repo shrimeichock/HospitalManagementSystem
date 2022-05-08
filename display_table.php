@@ -1,5 +1,5 @@
 <?php 
-    include_once('home.php');
+    include_once('index.php');
 
     require('config.php');
 
