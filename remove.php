@@ -21,5 +21,5 @@ if(substr($string, 0,13)=='removePatient'){
     echo $sql;
     $result = $db->query($sql);
 }
-header("Location: http://localhost/home.php"); 
+header("Location: http://localhost/index.php"); 
 ?>
