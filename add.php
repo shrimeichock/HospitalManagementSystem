@@ -20,13 +20,13 @@ if($_POST['submit']=="Add Doctor"){
 
     if (isset($_POST['symptoms'])){
 
-    foreach($_POST['symptoms'] as $symptom){
-        $sev = $_POST[$symptom."_sev"]; //get severity
-        $sql3 = "INSERT INTO is_experiencing VALUES($patient, $symptom, $sev)";
-        $result3 = $db->query($sql3);
+        foreach($_POST['symptoms'] as $symptom){
+            $sev = $_POST[$symptom."_sev"]; //get severity
+            $sql3 = "INSERT INTO is_experiencing VALUES($patient, $symptom, $sev)";
+            $result3 = $db->query($sql3);
+        }
     }
 }
-}
 
-header("Location: http://localhost/home.php"); 
+header("Location: http://localhost/index.php"); 
 ?>
