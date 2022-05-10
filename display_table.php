@@ -1,8 +1,7 @@
 <?php 
     include_once('index.php');
 
-    require('config.php');
-
+    #require('config.php');
     
     $key = ucwords($_POST['keyword']);
    
@@ -36,7 +35,7 @@
         }
     }
     
-    $result = $db->query($sql);
+    $result = mysqli_query($connect, $sql);
     $table_name = ucwords($table);
     echo "<h2>{$table_name}</h2>";
 
@@ -51,7 +50,7 @@
             echo "<td>".$row['Department']."</td></tr>";
         }
         echo "</table>";
-        echo "<form action='/doctor_form.html' method='get'>";
+        echo "<form action='./doctor_form.html' method='get'>";
             echo "<br>";
             echo "<button name='addDoctor' type='submit' id='button' value='addDoctor'>Add Doctor</button>";
         echo "</form>";
@@ -65,7 +64,7 @@
             echo "<td>".$row['DateAdmitted']."</td></tr>";
         }
         echo "</table>";
-        echo "<form action='/patient_form.html' method='get'>";
+        echo "<form action='./patient_form.html' method='get'>";
             echo "<br>";
             echo "<button name='addPatient' type='submit' id='button' value='addPatient'>Add Patient</button>";
         echo "</form>";
@@ -77,7 +76,7 @@
             echo "<td>".$row['Description']." <a href = {$row['Url']}> Read more...</a></td>";
 
             $sql2 = "SELECT * FROM symptom_of NATURAL JOIN symptoms WHERE Illness='{$row['Name']}' and Symptom = ID";
-            $result2 = $db->query($sql2);
+            $result2 = mysqli_query($connect, $sql2);
             echo "<td><ul>";
             foreach($result2 as $row){
                 echo "<li>{$row['Symptom_name']}</li>";
