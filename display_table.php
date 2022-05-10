@@ -1,7 +1,7 @@
 <?php 
     include_once('index.php');
 
-    #require('config.php');
+    require('config.php');
     
     $key = ucwords($_POST['keyword']);
    
