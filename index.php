@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hospital Management System</title>
+    <title>Hospital MM</title>
     <link rel="stylesheet" href="styles.css">
 <head>
 <body>
