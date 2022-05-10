@@ -7,7 +7,7 @@
 <head>
 <body>
     <h1>Hospital Management System</h1>
-    <form action='/display_table.php' method='post'>
+    <form action='./display_table.php' method='post'>
         <label for='Keyword'> Keyword: </label>
         <input type='text' id='inputField' name='keyword' placeholder='Enter a keyword'></input>
         <input type='submit' value='Patients' name='patients' id='button'>
