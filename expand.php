@@ -9,8 +9,7 @@
 
         //print out basic doctor data
         $sql = "SELECT * FROM {$table} WHERE ID = {$id}";
-        $result = $db->query($sql);
-        
+        $result = mysqli_query($connect, $sql);
 
         foreach($result as $row){
             echo "<h2>Dr. {$row['FirstName']} {$row['LastName']}</h2>";
@@ -28,7 +27,7 @@
 
         //patients that the doctor is assigned to
         $sql2 = "SELECT * FROM assigned_to NATURAL JOIN patients WHERE Doctor_id = {$id} AND Patient_id = ID";
-        $result2 = $db->query($sql2);
+        $result2 = mysqli_query($connect, $sql2);
 
         echo "<tr><th>Patients</th><td><ul>";
         foreach($result2 as $row){
@@ -38,7 +37,7 @@
         echo "</table><br>";
 
         //remove button
-        echo "<form action='/remove.php' method='get'>";
+        echo "<form action='./remove.php' method='get'>";
             echo "<button name='remove' type='submit' id='button' value='removeDoctor{$id}'>Remove Doctor</button>";
         echo "</form>";
 
@@ -50,7 +49,7 @@
 
         //print out basic patient data
         $sql = "SELECT * FROM {$table} WHERE ID = {$id}";
-        $result = $db->query($sql);
+        $result = mysqli_query($connect, $sql);
 
         foreach($result as $row){
             echo "<h2>{$row['FirstName']} {$row['LastName']}</h2>";
@@ -69,7 +68,7 @@
         
         //print out symptoms
         $sql2 = "SELECT * FROM is_experiencing NATURAL JOIN symptoms WHERE Patient_id = {$id} AND Symptom = ID";
-        $result2 = $db->query($sql2);
+        $result2 = mysqli_query($connect, $sql2);
     
         echo "<tr><th>Symptoms</th><td><ul>";
         foreach($result2 as $row){
@@ -79,7 +78,7 @@
 
         //print out doctors assigned to the patient
         $sql3 = "SELECT * FROM assigned_to NATURAL JOIN doctors WHERE Patient_id = {$id} AND Doctor_id = ID";
-        $result3 = $db->query($sql3);
+        $result3 = mysqli_query($connect, $sql3);
 
         echo "<tr><th>Doctor(s)</th><td><ul>";
         foreach($result3 as $row){
@@ -89,7 +88,7 @@
 
         //illnesses that patient is sick from
         $sql4 = "SELECT * FROM sick_from WHERE Patient_id = {$id}";
-        $result4 = $db->query($sql4);
+        $result4 = mysqli_query($connect, $sql4);
 
         echo "<tr><th>Illnesses</th><td><ul>";
         foreach($result4 as $row){
@@ -99,7 +98,7 @@
         echo "</table><br>";
 
         //remove button
-        echo "<form action='/remove.php' method='get'>";
+        echo "<form action='./remove.php' method='get'>";
             echo "<button name='remove' type='submit' id='button' value='removePatient{$id}'>Remove Patient</button>";
         echo "</form>";
 

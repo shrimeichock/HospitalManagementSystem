@@ -1,8 +1,6 @@
 <?php 
     include_once('index.php');
 
-    echo "sdfsfsd";
-
     #require('config.php');
     
     $key = ucwords($_POST['keyword']);
