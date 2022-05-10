@@ -1,6 +1,4 @@
-<?php require('config.php');
-echo "fasdasdas";
-?>
+<?php require('config.php');?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +15,5 @@ echo "fasdasdas";
         <input type='submit' value='Illnesses' name='illnesses' id='button'>
         <input type='submit' value='Departments' name='departments' id='button'>
     </form>
-
-    <p>afasfadasdas</p>
-    
 </body>
 </html>

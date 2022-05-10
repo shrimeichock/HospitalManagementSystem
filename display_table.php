@@ -5,7 +5,6 @@
 
     #require('config.php');
     
-    /*
     $key = ucwords($_POST['keyword']);
    
     if(isset($_POST['doctors'])){
@@ -100,5 +99,4 @@
     
     //print query
     echo "<p>{$sql}</p>";
-    */
 ?>
