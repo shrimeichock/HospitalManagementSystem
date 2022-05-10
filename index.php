@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hospital MM</title>
+    <title>Hospital Management System</title>
     <link rel="stylesheet" href="styles.css">
 <head>
 <body>
-    <h1>Hospital Management System</h1>
+    <h1>Hospital MaMMMM</h1>
     <form action='./display_table.php' method='post'>
         <label for='Keyword'> Keyword: </label>
         <input type='text' id='inputField' name='keyword' placeholder='Enter a keyword'></input>
