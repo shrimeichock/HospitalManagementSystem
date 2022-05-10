@@ -1,5 +1,4 @@
-PRAGMA foreign_keys=OFF;
-BEGIN TRANSACTION;
+BEGIN;
 
 DROP TABLE IF EXISTS patients;
 DROP TABLE IF EXISTS doctors;
@@ -12,16 +11,16 @@ DROP TABLE IF EXISTS sick_from;
 DROP TABLE IF EXISTS symptom_of;
 
 CREATE TABLE patients (
-    ID integer NOT NULL PRIMARY KEY AUTO_INCREMENT, --patient's ID
-    FirstName varchar(30) NOT NULL, --first name
-    LastName varchar(30) NOT NULL, --last name
-	Sex varchar(1), --M or F
+    ID int NOT NULL PRIMARY KEY AUTO_INCREMENT, -- patient's ID
+    FirstName varchar(30) NOT NULL, -- first name
+    LastName varchar(30) NOT NULL, -- last name
+	Sex varchar(1), -- M or F
     PhoneNumber varchar(15), -- phone number (XXX-XXX-XXXX)
     Email varchar(30), -- email address (ex. someone@gmail.com)
     Address varchar(50), -- home address (ex. 123 Rocker Ave)
-    Birthdate varchar(10), --date of birth (YYYY-MM-DD)
+    Birthdate varchar(10), -- date of birth (YYYY-MM-DD)
     Insurance varchar(15), -- health insurance number
-    DateAdmitted varchar(10) NOT NULL --date admitted (YYYY-MM-DD)
+    DateAdmitted varchar(10) NOT NULL -- date admitted (YYYY-MM-DD)
 );
 
 INSERT INTO patients VALUES (1, 'Isla-Grace', 'Adams', 'F', '611-893-2312', 'isla@yahoo.com', '132 Tapestry Way', '1998-01-01', 'ISLA19980101', '2022-04-01');
@@ -33,14 +32,14 @@ INSERT INTO patients VALUES (6, 'Sarah', 'Turner', 'F', '101-855-5311', 'sarah@h
 INSERT INTO patients VALUES (7, 'Sarah', 'Bertram', 'F', '987-654-3210', 'sarah2@hotmail.com', '48 Mallow Drive', '1992-10-29', 'SARA19921029', '2022-01-12');
 
 CREATE TABLE doctors (
-	ID integer NOT NULL PRIMARY KEY, --doctor’s ID
+	ID int NOT NULL PRIMARY KEY, -- doctor’s ID
     FirstName varchar(30) NOT NULL, -- first name
     LastName varchar(30) NOT NULL, -- last name
     PhoneNumber varchar(15), -- phone number (XXX-XXX-XXXX)
     Email varchar(30), -- email address (ex. someone@gmail.com)
     Address varchar(50), -- home address (ex. 123 Rocker Ave)
     Position varchar(30), -- title or type of doctor (ex. Cardiologist)
-    Date_joined varchar(10) NOT NULL, --start of employment (YYYY-MM-DD)
+    Date_joined varchar(10) NOT NULL, -- start of employment (YYYY-MM-DD)
     Department varchar(20) references department(Dept_name) -- department the doctor is under  
 );
 
@@ -153,7 +152,7 @@ INSERT INTO symptom_of VALUES ('Covid-19', 8);
 CREATE TABLE is_experiencing (
  	Patient_id integer NOT NULL references patient(ID),
 	Symptom integer NOT NULL references symptom(ID),
-	Severity integer, --severity of the symptom on a scale of 1 to 10
+	Severity integer, -- severity of the symptom on a scale of 1 to 10
 	PRIMARY KEY (Patient_id, Symptom)
 );
 
