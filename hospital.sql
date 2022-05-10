@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS sick_from;
 DROP TABLE IF EXISTS symptom_of;
 
 CREATE TABLE patients (
-    ID integer NOT NULL PRIMARY KEY, --patient's ID
+    ID integer NOT NULL PRIMARY KEY AUTO_INCREMENT, --patient's ID
     FirstName varchar(30) NOT NULL, --first name
     LastName varchar(30) NOT NULL, --last name
 	Sex varchar(1), --M or F
