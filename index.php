@@ -15,6 +15,8 @@
         <input type='submit' value='Illnesses' name='illnesses' id='button'>
         <input type='submit' value='Departments' name='departments' id='button'>
     </form>
+
+    <p>afasfadasdas</p>
     
 </body>
 </html>
