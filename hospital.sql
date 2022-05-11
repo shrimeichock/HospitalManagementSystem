@@ -1,7 +1,6 @@
 BEGIN;
 
 USE heroku_8ec04d2d3aaca2f;
-SET @@auto_increment_increment=0;
 
 DROP TABLE IF EXISTS is_experiencing;
 DROP TABLE IF EXISTS assigned_to;
