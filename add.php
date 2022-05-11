@@ -28,5 +28,5 @@ if($_POST['submit']=="Add Doctor"){
     }
 }
 
-header("Location: ./index.php"); 
+//header("Location: ./index.php"); 
 ?>
