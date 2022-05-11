@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS illnesses;
 DROP TABLE IF EXISTS symptoms;
 
 CREATE TABLE patients (
-    ID int NOT NULL AUTO_INCREMENT, -- patient's ID
+    ID int NOT NULL, -- patient's ID
     FirstName varchar(30) NOT NULL, -- first name
     LastName varchar(30) NOT NULL, -- last name
 	Sex varchar(1), -- M or F
