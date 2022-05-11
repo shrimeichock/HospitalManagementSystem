@@ -16,7 +16,7 @@ if(substr($string, 0,13)=='removePatient'){
     $result4 = mysqli_query($connect, $sql4);
     //echo $sql;
 }elseif(substr($string, 0,12)=='removeDoctor'){
-    $id = substr($string, 12,2);
+    $id = substr($string, 12);
     $sql = "DELETE FROM doctors WHERE ID={$id}";
     //echo $sql;
     $result = mysqli_query($connect, $sql);
