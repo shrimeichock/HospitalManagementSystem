@@ -22,5 +22,5 @@ if(substr($string, 0,13)=='removePatient'){
     //echo $sql;
     $result = mysqli_query($connect, $sql);
 }
-//header("Location: ./index.php"); 
+header("Location: ./index.php"); 
 ?>
