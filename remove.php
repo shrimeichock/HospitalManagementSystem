@@ -5,7 +5,7 @@ $string = $_GET['remove'];
 //echo $string."<br>";
 
 if(substr($string, 0,13)=='removePatient'){
-    $id = substr($string, 13,2);
+    $id = substr($string, 13);
     $sql = "DELETE FROM patients WHERE ID={$id}";
     $sql2 = "DELETE FROM is_experiencing WHERE Patient_id = {$id}";
     $sql3 = "DELETE FROM sick_from WHERE Patient_id = {$id}";
