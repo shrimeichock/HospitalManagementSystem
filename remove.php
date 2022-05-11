@@ -2,7 +2,7 @@
 require('config.php');
 
 $string = $_GET['remove'];
-echo $string."<br>";
+//echo $string."<br>";
 
 if(substr($string, 0,13)=='removePatient'){
     $id = substr($string, 13,2);
@@ -14,11 +14,11 @@ if(substr($string, 0,13)=='removePatient'){
     $result2 = mysqli_query($connect, $sql2);
     $result3 = mysqli_query($connect, $sql3);
     $result4 = mysqli_query($connect, $sql4);
-    echo $sql;
+    //echo $sql;
 }elseif(substr($string, 0,12)=='removeDoctor'){
     $id = substr($string, 12,2);
     $sql = "DELETE FROM doctors WHERE ID={$id}";
-    echo $sql;
+    //echo $sql;
     $result = mysqli_query($connect, $sql);
 }
 header("Location: ./index.php"); 
