@@ -1,5 +1,13 @@
 # HospitalManagementSystem
 
+## Description
+
+## Installation and Usage
+
+## Navigation
+
+## Sample Use Cases
+
 Viewing the Patient table with no keyword input:
 ![patient_table](https://github.com/shrimeichock/HospitalManagementSystem/blob/main/images/patient_table.PNG)
 
