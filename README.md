@@ -1,13 +1,21 @@
 # HospitalManagementSystem
 
 ## Description
+This hospital management system is a user-friedly application that can be used by hospital administrators to access and maintain data that is managed by the hospital (e.g. patient records, doctors' placements, department heads, etc.). The system can also be used by doctors or nurses to quickly search from a database of illnesses and their symptoms to accurately diagnose a patient.   
 
 ## Installation and Usage
+1. Download XAMPP: https://www.apachefriends.org/download.html
+
+2. Donwload the project folder and save it at ```C:\xampp\htdocs```
+
+3. Open the XAMPP Control Panel and start Apache and MySQL
+
+4. To run the application, go to http://localhost/Hospital/index.php on your browser
 
 ## Navigation
 
-## Sample Use Cases
 
+## Sample Use Cases
 Viewing the Patient table with no keyword input:
 ![patient_table](https://github.com/shrimeichock/HospitalManagementSystem/blob/main/images/patient_table.PNG)
 
