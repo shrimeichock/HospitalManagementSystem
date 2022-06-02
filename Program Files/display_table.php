@@ -1,37 +1,41 @@
+<!-- 
+    Author: @shrimeichock
+    Date created: April 2, 2022
+    Description: filter and display selected table based on the provided keyword
+ -->
+
 <?php 
     include_once('index.php');
-
-    #require('config.php');
     
-    $key = ucwords($_POST['keyword']);
+    $keyword = ucwords($_POST['keyword']);
    
     if(isset($_POST['doctors'])){
         $table = 'doctors';
-        $attribute = "FirstName = '{$key}' or LastName = '{$key}' or Position = '{$key}' or Department = '{$key}'";
+        $attribute = "FirstName LIKE '%{$keyword}%' or LastName LIKE '%{$keyword}%' or Position = '{$keyword}' or Department = '{$keyword}' or ID = '{$keyword}'";
         $sql = "SELECT * FROM {$table} WHERE {$attribute}";
-        if($key == ''){
+        if($keyword == ''){
             $sql = "SELECT * FROM {$table}";
         }
     }elseif(isset($_POST['patients'])){
         $table = 'patients';
-        $attribute = "FirstName = '{$key}' or LastName = '{$key}' or Sex = '{$key}'";
+        $attribute = "FirstName LIKE '%{$keyword}%' or LastName LIKE '%{$keyword}%' or ID = '{$keyword}'";
         $sql = "SELECT * FROM {$table} WHERE {$attribute}";
-        if($key == ''){
+        if($keyword == ''){
             $sql = "SELECT * FROM {$table}";
         }
     }elseif(isset($_POST['illnesses'])){
         $table = 'illnesses';
-        $attribute = "Name = Illness and Symptom = ID and (Name = '{$key}' or Symptom_name = '{$key}')";
-        $sql = "SELECT * FROM {$table} NATURAL JOIN symptom_of NATURAL JOIN symptoms WHERE {$attribute}";
-        if($key == ''){
-            $sql = "SELECT * FROM {$table}";
+        $attribute = "Name = Illness and Symptom = ID and (Name LIKE '%{$keyword}%' or Symptom_name = '{$keyword}')";
+        $sql = "SELECT DISTINCT Name, Description, Url FROM {$table} NATURAL JOIN symptom_of NATURAL JOIN symptoms WHERE {$attribute}";
+        if($keyword == ''){
+            $sql = "SELECT * FROM {$table}"; //does not retrieve symptoms
         }
     }elseif(isset($_POST['departments'])){
         $table = 'departments';
-        $attribute = "Dept_name = '{$key}'";
-        $sql = "SELECT * FROM {$table} NATURAL JOIN doctors WHERE {$attribute}"; 
-        if($key == ''){
-            $sql = "SELECT * FROM {$table} NATURAL JOIN doctors WHERE ID = Head";
+        $attribute = "Dept_name = '{$keyword}' or FirstName LIKE '%{$keyword}%' or LastName LIKE '%{$keyword}%'";
+        $sql = "SELECT * FROM {$table} NATURAL JOIN doctors WHERE doctors.ID = {$table}.Head and ({$attribute})"; 
+        if($keyword == ''){
+            $sql = "SELECT * FROM {$table} NATURAL JOIN doctors WHERE doctors.ID = {$table}.Head";
         }
     }
     
@@ -75,7 +79,7 @@
             echo "<tr><td>".$row['Name']."</td>";
             echo "<td>".$row['Description']." <a href = {$row['Url']}> Read more...</a></td>";
 
-            $sql2 = "SELECT * FROM symptom_of NATURAL JOIN symptoms WHERE Illness='{$row['Name']}' and Symptom = ID";
+            $sql2 = "SELECT * FROM symptom_of NATURAL JOIN symptoms WHERE Illness='{$row['Name']}' and Symptom = ID"; //get symptoms for illness
             $result2 = mysqli_query($connect, $sql2);
             echo "<td><ul>";
             foreach($result2 as $row){
@@ -86,7 +90,7 @@
         echo "</table>";
     }elseif($table == 'departments'){
         echo "<table border=1 id='table'>";
-        echo "<tr> <th>Name</th> <th>Description</th> <th>Head</th></tr>";
+        echo "<tr> <th>Name</th> <th>Building</th> <th>Head</th></tr>";
         foreach($result as $row){
             echo "<tr><td>".$row['Dept_name']."</td>";
             echo "<td>".$row['Building']."</td>";
@@ -96,5 +100,5 @@
     }
     
     //print query
-    echo "<p>{$sql}</p>";
+    //echo "<p>{$sql}</p>";
 ?>

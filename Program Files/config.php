@@ -1,3 +1,9 @@
+<!-- 
+    Author: @shrimeichock
+    Date created: April 2, 2022
+    Description: Connect to hospital database
+ -->
+
 <?php
     $server = "localhost";
     $username = "hospitalAdmin";
