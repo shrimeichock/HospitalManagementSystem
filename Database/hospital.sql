@@ -1,14 +1,14 @@
 BEGIN;
 
-DROP TABLE IF EXISTS patients;
-DROP TABLE IF EXISTS doctors;
-DROP TABLE IF EXISTS illnesses;
-DROP TABLE IF EXISTS departments;
-DROP TABLE IF EXISTS symptoms;
 DROP TABLE IF EXISTS is_experiencing;
 DROP TABLE IF EXISTS assigned_to;
 DROP TABLE IF EXISTS sick_from;
 DROP TABLE IF EXISTS symptom_of;
+DROP TABLE IF EXISTS patients;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS doctors;
+DROP TABLE IF EXISTS illnesses;
+DROP TABLE IF EXISTS symptoms;
 
 CREATE TABLE patients (
     ID int NOT NULL PRIMARY KEY AUTO_INCREMENT, -- patient's ID
@@ -63,13 +63,13 @@ INSERT INTO departments VALUES('Radiology', 'Herzberg Building', 6);
 
 CREATE TABLE illnesses (
 	Name varchar(30) NOT NULL PRIMARY KEY, -- name of the illness or condition
-	Description varchar(300), -- a short description of the illness
-	Url varchar(100) -- a link to information about the illness
+	Description text, -- a short description of the illness
+	Url text -- a link to information about the illness
 );
 
 INSERT INTO illnesses VALUES('Common cold', "The common cold is a viral infection of your nose and throat (upper respiratory tract). It's usually harmless, although it might not feel that way. Many types of viruses can cause a common cold.", "https://www.mayoclinic.org/diseases-conditions/common-cold/symptoms-causes/syc-20351605");
 INSERT INTO illnesses VALUES('Diabetes', "Diabetes mellitus refers to a group of diseases that affect how your body uses blood sugar (glucose). Chronic diabetes conditions include type 1 diabetes and type 2 diabetes. Potentially reversible diabetes conditions include prediabetes and gestational diabetes.", "https://www.mayoclinic.org/diseases-conditions/diabetes/symptoms-causes/syc-20371444");
-INSERT INTO illnesses VALUES('Covid-19', "Coronaviruses are a family of viruses that can cause illnesses such as the common cold, severe acute respiratory syndrome (SARS) and Middle East respiratory syndrome (MERS).", "https://www.mayoclinic.org/diseases-conditions/coronavirus/symptoms-causes/syc-20479963");
+INSERT INTO illnesses VALUES('Covid-19', "CORONA are a family of viruses that can cause illnesses such as the common cold, severe acute respiratory syndrome (SARS) and Middle East respiratory syndrome (MERS).", "https://www.mayoclinic.org/diseases-conditions/coronavirus/symptoms-causes/syc-20479963");
 
 CREATE TABLE symptoms (
 	ID integer NOT NULL PRIMARY KEY, -- symptom id
