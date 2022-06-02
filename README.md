@@ -1,7 +1,7 @@
 # Hospital Management System
 
 ## Description
-This hospital management system is a user-friedly application that can be used by hospital administrators to access and maintain data that is managed by the hospital (e.g. patient records, doctors' placements, department heads, etc.). The system can also be used by doctors or nurses to quickly search from a database of illnesses and their symptoms to accurately diagnose a patient.   
+The Hospital Management System is a user-friedly application that can be used by hospital administrators to access and maintain data that is managed by the hospital (e.g. patient records, doctors' placements, department heads, etc.). The system can also be used by doctors or nurses to quickly search from a database of illnesses and their symptoms to accurately diagnose a patient.   
 
 ## Installation and Usage
 1. Download XAMPP: https://www.apachefriends.org/download.html
