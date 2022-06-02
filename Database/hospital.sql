@@ -73,7 +73,7 @@ CREATE TABLE illnesses (
 
 INSERT INTO illnesses VALUES('Common cold', "The common cold is a viral infection of your nose and throat (upper respiratory tract). It's usually harmless, although it might not feel that way. Many types of viruses can cause a common cold.", "https://www.mayoclinic.org/diseases-conditions/common-cold/symptoms-causes/syc-20351605");
 INSERT INTO illnesses VALUES('Diabetes', "Diabetes mellitus refers to a group of diseases that affect how your body uses blood sugar (glucose). Chronic diabetes conditions include type 1 diabetes and type 2 diabetes. Potentially reversible diabetes conditions include prediabetes and gestational diabetes.", "https://www.mayoclinic.org/diseases-conditions/diabetes/symptoms-causes/syc-20371444");
-INSERT INTO illnesses VALUES('Covid-19', "CORONA are a family of viruses that can cause illnesses such as the common cold, severe acute respiratory syndrome (SARS) and Middle East respiratory syndrome (MERS).", "https://www.mayoclinic.org/diseases-conditions/coronavirus/symptoms-causes/syc-20479963");
+INSERT INTO illnesses VALUES('Covid-19', "Coronaviruses are a family of viruses that can cause illnesses such as the common cold, severe acute respiratory syndrome (SARS) and Middle East respiratory syndrome (MERS).", "https://www.mayoclinic.org/diseases-conditions/coronavirus/symptoms-causes/syc-20479963");
 
 CREATE TABLE symptoms (
 	ID integer NOT NULL PRIMARY KEY, -- symptom id
