@@ -1,3 +1,7 @@
+/*  Author: @shrimeichock
+	Date created: April 2, 2022
+	Description: SQL script to build the database. Includes some sample data for each table.
+*/
 BEGIN;
 
 DROP TABLE IF EXISTS is_experiencing;
