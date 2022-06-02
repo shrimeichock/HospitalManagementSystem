@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Hospital Management System</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../Styles/styles.css">
 <head>
 <body>
     <h1>Hospital Management System</h1>
