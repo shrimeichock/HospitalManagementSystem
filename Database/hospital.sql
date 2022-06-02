@@ -18,9 +18,9 @@ CREATE TABLE patients (
     PhoneNumber varchar(15), -- phone number (XXX-XXX-XXXX)
     Email varchar(30), -- email address (ex. someone@gmail.com)
     Address varchar(50), -- home address (ex. 123 Rocker Ave)
-    Birthdate varchar(10), -- date of birth (YYYY-MM-DD)
+    Birthdate date, -- date of birth (YYYY-MM-DD)
     Insurance varchar(15), -- health insurance number
-    DateAdmitted varchar(10) NOT NULL -- date admitted (YYYY-MM-DD)
+    DateAdmitted date NOT NULL -- date admitted (YYYY-MM-DD)
 );
 
 INSERT INTO patients VALUES (1, 'Isla-Grace', 'Adams', 'F', '611-893-2312', 'isla@yahoo.com', '132 Tapestry Way', '1998-01-01', 'ISLA19980101', '2022-04-01');
@@ -39,7 +39,7 @@ CREATE TABLE doctors (
     Email varchar(30), -- email address (ex. someone@gmail.com)
     Address varchar(50), -- home address (ex. 123 Rocker Ave)
     Position varchar(30), -- title or type of doctor (ex. Cardiologist)
-    Date_joined varchar(10) NOT NULL, -- start of employment (YYYY-MM-DD)
+    Date_joined date NOT NULL, -- start of employment (YYYY-MM-DD)
     Department varchar(20) references department(Dept_name) -- department the doctor is under  
 );
 
