@@ -10,10 +10,29 @@ The Hospital Management System is a user-friedly application that can be used by
 
 3. Open the XAMPP Control Panel and start Apache and MySQL
 
-4. To run the application, go to http://localhost/Hospital/index.php on your browser
+4. To run the application, go to http://localhost/HospitalManagementSystem/Program%20Files/index.php on your browser
 
 ## Navigation
+Patients: Search by...
+- first name (contains keyword)
+- last name (contains keyword)
+- id (exact)
 
+Doctors: Search by...
+- first name (contains keyword)
+- last name (contains keyword)
+- position (exact)
+- department (exact)
+- id (exact)
+
+Illnesses: Search by...
+- illness name (exact)
+- symptom name (exact)
+
+Departments: Search by...
+- department name (exact)
+- head's first name (contains keyword)
+- head's last name (contains keyword)
 
 ## Sample Use Cases
 Viewing the Patient table with no keyword input:
