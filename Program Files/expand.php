@@ -1,9 +1,15 @@
+<!-- 
+    Author: @shrimeichock
+    Date created: April 2, 2022
+    Description: View single patient or doctor's info
+ -->
+
 <?php
-    include_once('index.php');
+    include_once('index.php'); //to carry over formatting
     require('config.php');
-    //user clicks on a link <- patient or doctor or illness
-    $id = $_GET['id'];
-    $table = $_GET['table'];
+
+    $id = $_GET['id']; //patient or doctor id
+    $table = $_GET['table']; //patient or doctor table
 
     if($table == 'doctors'){
 
