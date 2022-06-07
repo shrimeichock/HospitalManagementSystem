@@ -36,7 +36,7 @@ INSERT INTO patients VALUES (6, 'Sarah', 'Turner', 'F', '101-855-5311', 'sarah@h
 INSERT INTO patients VALUES (7, 'Sarah', 'Bertram', 'F', '987-654-3210', 'sarah2@hotmail.com', '48 Mallow Drive', '1992-10-29', 'SARA19921029', '2022-01-12');
 
 CREATE TABLE doctors (
-	ID int NOT NULL PRIMARY KEY, -- doctor’s ID
+	ID int NOT NULL PRIMARY KEY AUTO_INCREMENT, -- doctor’s ID
     FirstName varchar(30) NOT NULL, -- first name
     LastName varchar(30) NOT NULL, -- last name
     PhoneNumber varchar(15), -- phone number (XXX-XXX-XXXX)
