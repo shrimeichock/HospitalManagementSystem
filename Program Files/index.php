@@ -1,4 +1,13 @@
-<?php require('config.php');?>
+<!-- 
+    Author: @shrimeichock
+    Date created: April 2, 2022
+    Description: Home page of website with search bar and table options
+ -->
+ 
+<?php 
+require('config.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
