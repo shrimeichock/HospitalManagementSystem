@@ -1,7 +1,7 @@
 <!-- 
     Author: @shrimeichock
     Date created: April 2, 2022
-    Version: 
+    Version: 1.2
     Description: Home page of website with search bar and table options
  -->
  

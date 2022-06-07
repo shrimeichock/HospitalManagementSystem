@@ -1,7 +1,7 @@
 <!-- 
     Author: @shrimeichock
     Date created: April 2, 2022
-    Version: 
+    Version: 1.1
     Description: View single patient or doctor's info
  -->
 

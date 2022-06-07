@@ -1,7 +1,7 @@
 <!-- 
     Author: @shrimeichock
     Date created: April 2, 2022
-    Version: 
+    Version: 1.2
     Description: Add doctor or patient into the database
  -->
 
