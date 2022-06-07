@@ -44,7 +44,7 @@ CREATE TABLE doctors (
     Address varchar(50), -- home address (ex. 123 Rocker Ave)
     Position varchar(30), -- title or type of doctor (ex. Cardiologist)
     Date_joined date NOT NULL, -- start of employment (YYYY-MM-DD)
-    Department varchar(20) references department(Dept_name) -- department the doctor is under  
+    Department varchar(20) references departments(Dept_name) -- department the doctor is under  
 );
 
 INSERT INTO doctors VALUES(1,'Brent', 'Rock', '123-456-7890', 'brent@gmail.com', '555 Waterfall Way', 'Cardiologist', '2004-01-10', 'Cardiology');
@@ -58,7 +58,7 @@ INSERT INTO doctors VALUES(7,'Brent', 'Walters', '000-011-3452', 'brent2@gmail.c
 CREATE TABLE departments (
 	Dept_name varchar(20) NOT NULL PRIMARY KEY, -- department name
 	Building varchar(20), -- building that the department is located
-	Head integer references doctor(id) -- head doctor for the department
+	Head integer references doctors(id) -- head doctor for the department
 );
 
 INSERT INTO departments VALUES('Cardiology', 'Azrieli Pavillion', 1);
@@ -73,7 +73,7 @@ CREATE TABLE illnesses (
 
 INSERT INTO illnesses VALUES('Common cold', "The common cold is a viral infection of your nose and throat (upper respiratory tract). It's usually harmless, although it might not feel that way. Many types of viruses can cause a common cold.", "https://www.mayoclinic.org/diseases-conditions/common-cold/symptoms-causes/syc-20351605");
 INSERT INTO illnesses VALUES('Diabetes', "Diabetes mellitus refers to a group of diseases that affect how your body uses blood sugar (glucose). Chronic diabetes conditions include type 1 diabetes and type 2 diabetes. Potentially reversible diabetes conditions include prediabetes and gestational diabetes.", "https://www.mayoclinic.org/diseases-conditions/diabetes/symptoms-causes/syc-20371444");
-INSERT INTO illnesses VALUES('Covid-19', "CORONA are a family of viruses that can cause illnesses such as the common cold, severe acute respiratory syndrome (SARS) and Middle East respiratory syndrome (MERS).", "https://www.mayoclinic.org/diseases-conditions/coronavirus/symptoms-causes/syc-20479963");
+INSERT INTO illnesses VALUES('Covid-19', "Coronaviruses are a family of viruses that can cause illnesses such as the common cold, severe acute respiratory syndrome (SARS) and Middle East respiratory syndrome (MERS).", "https://www.mayoclinic.org/diseases-conditions/coronavirus/symptoms-causes/syc-20479963");
 
 CREATE TABLE symptoms (
 	ID integer NOT NULL PRIMARY KEY, -- symptom id
@@ -95,8 +95,8 @@ INSERT INTO symptoms VALUES(12,'Extreme Weight Loss');
 INSERT INTO symptoms VALUES(13,'Extreme Thirst');
 
 CREATE TABLE assigned_to (
-	Doctor_id integer NOT NULL references doctor(ID),
-	Patient_id integer NOT NULL references patient(ID),
+	Doctor_id integer NOT NULL references doctors(ID),
+	Patient_id integer NOT NULL references patients(ID),
 	PRIMARY KEY (Doctor_id, Patient_id)
 );
 
@@ -110,8 +110,8 @@ INSERT INTO assigned_to VALUES(4,1);
 INSERT INTO assigned_to VALUES(4,6);
 
 CREATE TABLE sick_from (
-	Patient_id integer NOT NULL references patient(ID),
-	Illness varchar(30) NOT NULL references illness(name),
+	Patient_id integer NOT NULL references patients(ID),
+	Illness varchar(30) NOT NULL references illnesses(name),
 	Status varchar(10), -- status of patient with regards to the illness (serious, recovered, stable)
 	PRIMARY KEY (Patient_id, Illness)
 );
@@ -125,8 +125,8 @@ INSERT INTO sick_from VALUES(6,'Common cold', 'Recovered');
 INSERT INTO sick_from VALUES(6,'Covid-19', 'Serious');
 
 CREATE TABLE symptom_of (
-	Illness varchar(30) NOT NULL references illness(name),
-	Symptom integer NOT NULL references symptom(ID),
+	Illness varchar(30) NOT NULL references illnesses(name),
+	Symptom integer NOT NULL references symptoms(ID),
 	PRIMARY KEY (Illness, Symptom)
 );
 
@@ -154,8 +154,8 @@ INSERT INTO symptom_of VALUES ('Covid-19', 7);
 INSERT INTO symptom_of VALUES ('Covid-19', 8);
 
 CREATE TABLE is_experiencing (
- 	Patient_id integer NOT NULL references patient(ID),
-	Symptom integer NOT NULL references symptom(ID),
+ 	Patient_id integer NOT NULL references patients(ID),
+	Symptom integer NOT NULL references symptoms(ID),
 	Severity integer, -- severity of the symptom on a scale of 1 to 10
 	PRIMARY KEY (Patient_id, Symptom)
 );
