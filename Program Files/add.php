@@ -1,6 +1,7 @@
 <!-- 
     Author: @shrimeichock
     Date created: April 2, 2022
+    Version: 
     Description: Add doctor or patient into the database
  -->
 
@@ -31,7 +32,6 @@ if($_POST['submit']=="Add Doctor"){
     if (isset($_POST['symptoms'])){
         foreach($_POST['symptoms'] as $symptom){
             $sev = $_POST[$symptom."_sev"]; //get severity
-            echo "id: {$patient}, symptom: {$symptom}, sev: {$sev}";
             $sql3 = "INSERT INTO is_experiencing VALUES($patient, $symptom, $sev)";
             $result3 = mysqli_query($connect, $sql3);
         }

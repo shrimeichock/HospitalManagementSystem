@@ -1,6 +1,7 @@
 <!-- 
     Author: @shrimeichock
     Date created: April 2, 2022
+    Version: 
     Description: Remove doctor or patient from database
  -->
 
@@ -32,7 +33,7 @@ if(substr($string, 0,13)=='removePatient'){
     $sql = "DELETE FROM doctors WHERE ID={$id}";
 
     //Completely remove doctor from connected tables
-    
+
     /*
     $sql2 = "DELETE FROM assgned_to WHERE Doctor_id = {$id}";
     $result2 = mysqli_query($connect, $sql2);

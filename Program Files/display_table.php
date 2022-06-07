@@ -1,11 +1,12 @@
 <!-- 
     Author: @shrimeichock
     Date created: April 2, 2022
+    Version: 
     Description: filter and display selected table based on the provided keyword
  -->
 
 <?php 
-    include_once('index.php');
+    include_once('index.php'); //to carry over formatting
     
     $keyword = ucwords($_POST['keyword']);
    
